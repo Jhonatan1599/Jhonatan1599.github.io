@@ -5,9 +5,9 @@
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Movies | csharpjourney </title>
+      <title>Account | csharpjourney </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Movies | csharpjourney ">
+      <meta name="title" content="Account | csharpjourney ">
       <meta name="generator" content="docfx ">
   
       <link rel="shortcut icon" href="../favicon.ico">
@@ -95,10 +95,10 @@
                          </div>
 
                     <article class="content wrap" id="_content" data-uid="">
-<h1 id="movies">Movies</h1>
+<h1 id="account">Account</h1>
 
-<p>Disney movies or series</p>
-<h2 id="movies-schema">Movies schema</h2>
+<p>Endpoints related to authentication and user administration</p>
+<h2 id="account-schema">Account schema</h2>
 <table>
 <thead>
 <tr>
@@ -109,144 +109,59 @@
 </thead>
 <tbody>
 <tr>
-<td>id</td>
-<td>uuid</td>
-<td>The id of the movie.</td>
-</tr>
-<tr>
-<td>title</td>
+<td>userName</td>
 <td>string</td>
-<td>The title of the movie.</td>
+<td>User name</td>
 </tr>
 <tr>
-<td>creationDate</td>
-<td>datetime</td>
-<td>The date of the movie's creation.</td>
-</tr>
-<tr>
-<td>imageUrl</td>
+<td>email</td>
 <td>string</td>
-<td>Link to the movies's image</td>
+<td>The user's email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>The user's password</td>
+</tr>
+<tr>
+<td>role</td>
+<td>int</td>
+<td>The user's role</td>
 </tr>
 </tbody>
 </table>
-<h2 id="route-parameters">Route Parameters</h2>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>movieId</td>
-<td>uuid</td>
-<td>The id of the movie</td>
-</tr>
-</tbody>
-</table>
-<h2 id="get-all-movies">[GET] All movies</h2>
+<h2 id="post-register-a-user">[POST] Register a user</h2>
 <p><strong>Request:</strong></p>
-<p><code>https://disney-api.app.csharpjourney.com/api/movies</code></p>
-<p><strong>Response:</strong></p>
-<pre><code class="lang-json">[
-    {
-        &quot;id&quot;: &quot;63419692-82fc-48cd-afc1-00a606333d64&quot;,
-        &quot;title&quot;: &quot;Steamboat Willie&quot;,
-        &quot;creationDate&quot;: &quot;1928-11-18&quot;,
-        &quot;imageUrl&quot;: &quot;https://disney-api.app.csharpjourney.com/images/movies/Steamboat-Willie.jpg&quot;
-    },
-    {
-        &quot;id&quot;: &quot;7395a228-076b-4e07-8f8a-33806ce01dd3&quot;,
-        &quot;title&quot;: &quot;The Wise Little Hen&quot;,
-        &quot;creationDate&quot;: &quot;1934-06-09&quot;,
-        &quot;imageUrl&quot;: &quot;https://disney-api.app.csharpjourney.com/images/movies/The-Wise-Little-Hen.jpg&quot;
-    }
-]
-</code></pre>
-<h2 id="get-a-single-movie">[GET] A single movie</h2>
-<p><strong>Request:</strong></p>
-<p><code>https://disney-api.app.csharpjourney.com/api/characters/{movieId}</code></p>
-<p><strong>Response:</strong></p>
-<pre><code class="lang-json">{
-    &quot;id&quot;: &quot;e80ad408-9e10-4a7e-bcc4-d4bdfde76e7b&quot;,
-    &quot;title&quot;: &quot;Fantasia&quot;,
-    &quot;creationDate&quot;: &quot;1940-11-13&quot;,
-    &quot;rating&quot;: 7,
-    &quot;imageUrl&quot;: &quot;https://disney-api.app.csharpjourney.com/images/movies/fantasia.jpg&quot;,
-    &quot;characters&quot;: [
-        {
-            &quot;id&quot;: &quot;25fc6070-26bd-4af5-8f7e-47594131aed4&quot;,
-            &quot;name&quot;: &quot;Mickey Mouse&quot;,
-            &quot;age&quot;: 90,
-            &quot;weight&quot;: 23.6,
-            &quot;story&quot;: &quot;Mickey Mouse is a cartoon character created by Walt Disney.&quot;,
-            &quot;imageUrl&quot;: &quot;https://disney-api.app.csharpjourney.com/images/characters/mickey.png&quot;
-        }
-    ],
-    &quot;genre&quot;: {
-        &quot;name&quot;: &quot;Fantasy&quot;
-    }
-}
-</code></pre>
-<h2 id="post-a-movie">[POST] A movie</h2>
-<p><strong>Request:</strong></p>
-<p><code>https://disney-api.app.csharpjourney.com/api/movies</code></p>
+<p><code>https://disney-api.app.csharpjourney.com/auth/register</code></p>
 <p>Body</p>
 <pre><code class="lang-json">{
-    &quot;title&quot;: &quot;Some movie&quot;,
-    &quot;creationDate&quot;: &quot;1934-06-09&quot;,
-    &quot;rating&quot;: 6,
-    &quot;imageUrl&quot;: &quot;some url&quot;,
-    &quot;GenreId&quot; : &quot;The guid of the genre&quot;
-}
-</code></pre>
-<p><strong>Response:</strong></p>
-<pre><code class="lang-json">{
-  &quot;id&quot;: &quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;,
+  &quot;userName&quot;: &quot;string&quot;,
+  &quot;email&quot;: &quot;string&quot;,
   &quot;name&quot;: &quot;string&quot;,
-  &quot;age&quot;: 0,
-  &quot;weight&quot;: 0,
-  &quot;story&quot;: &quot;string&quot;,
-  &quot;imageUrl&quot;: &quot;string&quot;,
-  &quot;moviesOrSeries&quot;: [
-    {
-      &quot;id&quot;: &quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;,
-      &quot;title&quot;: &quot;string&quot;,
-      &quot;creationDate&quot;: &quot;2023-07-17T02:07:29.786Z&quot;,
-      &quot;imageUrl&quot;: &quot;string&quot;,
-      &quot;genre&quot;: {
-        &quot;name&quot;: &quot;string&quot;,
-        &quot;imageUrl&quot;: &quot;string&quot;
-      }
-    }
-  ]
+  &quot;password&quot;: &quot;string&quot;,
+  &quot;role&quot;: 0
 }
 </code></pre>
-<h2 id="delete-a-movie">[DELETE] A movie</h2>
-<p><strong>Request:</strong></p>
-<p><code>https://disney-api.app.csharpjourney.com/api/movies/{characterId}</code></p>
 <p><strong>Response:</strong></p>
-<p><code>Success</code></p>
-<h2 id="put-a-movie">[PUT] A movie</h2>
+<p><code>200 Success</code></p>
+<h2 id="post-login-a-user">[POST] Login a user</h2>
 <p><strong>Request:</strong></p>
-<p><code>https://disney-api.app.csharpjourney.com/api/movies/{characterId}</code></p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>&quot;null&quot; values will keep the already existing values</p>
-</div>
+<p><code>https://disney-api.app.csharpjourney.com/auth/login</code></p>
 <p>Body</p>
 <pre><code class="lang-json">{
-  &quot;title&quot;: &quot;Aladdin modified&quot;,
-  &quot;rating&quot;: 20,
-  &quot;imageUrl&quot;: &quot;null&quot;,
-  &quot;creationDate&quot;: &quot;null&quot;
+{
+  &quot;userName&quot;: &quot;string&quot;,
+  &quot;password&quot;: &quot;string&quot;
+}
 }
 </code></pre>
 <p><strong>Response:</strong></p>
-<p><code>Success</code></p>
+<p><code>200 Success</code></p>
+<h2 id="post-logout">[POST] Logout</h2>
+<p><strong>Request:</strong></p>
+<p><code>https://disney-api.app.csharpjourney.com/auth/logOUT</code></p>
+<p><strong>Response:</strong></p>
+<p><code>200 Success</code></p>
 </article>
                 </div>
 

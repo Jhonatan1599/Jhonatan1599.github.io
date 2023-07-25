@@ -33,6 +33,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/account.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/account.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/characters.md",
       "output": {
         ".html": {
